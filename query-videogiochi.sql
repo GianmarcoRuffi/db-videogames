@@ -114,12 +114,11 @@
 
 --2- Sezionare tutti i videogame dei tornei tenuti nel 2016, mostrandoli una sola volta (226)
 
---select distinct tournament_videogame.id
---from tournament_videogame
---join tournaments
---ON tournament_videogame.tournament_id = tournaments.id
---WHERE tournaments.year = '2016'
---GROUP BY tournament_videogame.id, tournament_videogame.videogame_id;
+--Select distinct videogames.id, videogames.name
+--from tournaments
+--join tournament_videogame ON tournament_videogame.tournament_id = tournaments.id
+--join videogames on tournament_videogame.videogame_id = videogames.id
+--WHERE tournaments.year = 2016;
 
 --3- Mostrare le categorie di ogni videogioco (1718)
 
@@ -132,7 +131,11 @@
 
 --4- Selezionare i dati di tutte le software house che hanno rilasciato almeno un gioco dopo il 2020, mostrandoli una sola volta (6)
 
-
+--select distinct software_houses.*
+--from software_houses
+--join videogames
+--on software_houses.id = videogames.software_house_id
+--where videogames.release_date > '2020'
 
 --5- Selezionare i premi ricevuti da ogni software house per i videogiochi che ha prodotto (55)
 
