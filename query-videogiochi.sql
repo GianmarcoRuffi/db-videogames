@@ -67,15 +67,39 @@
 
 --1- Contare quante software house ci sono per ogni paese (3)
 
+--SELECT COUNT(id)
+--FROM software_houses
+--group by country
+
 --2- Contare quante recensioni ha ricevuto ogni videogioco (del videogioco vogliamo solo l'ID) (500)
+
+--SELECT COUNT(videogame_id)
+--FROM reviews
+--group by videogame_id
 
 --3- Contare quanti videogiochi hanno ciascuna classificazione PEGI (della classificazione PEGI vogliamo solo l'ID) (13)
 
+--SELECT COUNT(videogame_id)
+--FROM pegi_label_videogame
+--group by pegi_label_id
+
 --4- Mostrare il numero di videogiochi rilasciati ogni anno (11)
+
+--SELECT DATEPART(year, release_date) year, COUNT(*) 
+--FROM videogames
+--group by DATEPART(year, release_date);
 
 --5- Contare quanti videogiochi sono disponbiili per ciascun device (del device vogliamo solo l'ID) (7)
 
+--select count (videogame_id)
+--from device_videogame
+--group by device_id
+
 --6- Ordinare i videogame in base alla media delle recensioni (del videogioco vogliamo solo l'ID) (500)
+
+--select videogame_id, avg(rating) as [rating]
+--from reviews
+--group by videogame_id
 
 --QUERY CON JOIN
 
