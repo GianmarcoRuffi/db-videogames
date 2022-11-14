@@ -100,10 +100,13 @@
 --select videogame_id, avg(rating) as [rating]
 --from reviews
 --group by videogame_id
+--order by videogame_id;
 
 --QUERY CON JOIN
 
 --1- Selezionare i dati di tutti giocatori che hanno scritto almeno una recensione, mostrandoli una sola volta (996)
+
+
 
 --2- Sezionare tutti i videogame dei tornei tenuti nel 2016, mostrandoli una sola volta (226)
 
