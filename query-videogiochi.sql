@@ -139,7 +139,31 @@
 
 --5- Selezionare i premi ricevuti da ogni software house per i videogiochi che ha prodotto (55)
 
+--SELECT software_houses.id, software_houses.name, awards.id, awards.name
+--FROM software_houses
+--INNER JOIN videogames
+--ON software_houses.id = videogames.software_house_id
+--INNER JOIN award_videogame
+--ON videogames.id = award_videogame.videogame_id
+--INNER JOIN awards
+--ON award_videogame.award_id = awards.id
+--ORDER BY software_houses.name;
+
 --6- Selezionare categorie e classificazioni PEGI dei videogiochi che hanno ricevuto recensioni da 4 e 5 stelle, mostrandole una sola volta (3363)
+
+SELECT distinct videogames.name, (categories.name)categoria, (pegi_labels.name)classificazione_pegi
+FROM categories
+INNER JOIN category_videogame
+ON categories.id = category_videogame.category_id
+INNER JOIN videogames
+ON category_videogame.videogame_id = videogames.id
+INNER JOIN pegi_label_videogame
+ON videogames.id = pegi_label_videogame.videogame_id
+INNER JOIN pegi_labels
+ON pegi_label_videogame.pegi_label_id = pegi_labels.id
+INNER JOIN reviews
+ON videogames.id = reviews.videogame_id
+WHERE reviews.rating between 4 AND 5;
 
 --7- Selezionare quali giochi erano presenti nei tornei nei quali hanno partecipato i giocatori il cui nome inizia per 'S' (474)
 
