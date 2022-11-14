@@ -151,21 +151,33 @@
 
 --6- Selezionare categorie e classificazioni PEGI dei videogiochi che hanno ricevuto recensioni da 4 e 5 stelle, mostrandole una sola volta (3363)
 
-SELECT distinct videogames.name, (categories.name)categoria, (pegi_labels.name)classificazione_pegi
-FROM categories
-INNER JOIN category_videogame
-ON categories.id = category_videogame.category_id
-INNER JOIN videogames
-ON category_videogame.videogame_id = videogames.id
-INNER JOIN pegi_label_videogame
-ON videogames.id = pegi_label_videogame.videogame_id
-INNER JOIN pegi_labels
-ON pegi_label_videogame.pegi_label_id = pegi_labels.id
-INNER JOIN reviews
-ON videogames.id = reviews.videogame_id
-WHERE reviews.rating between 4 AND 5;
+--SELECT distinct videogames.name, (categories.name)categoria, (pegi_labels.name)classificazione_pegi
+--FROM categories
+--INNER JOIN category_videogame
+--ON categories.id = category_videogame.category_id
+--INNER JOIN videogames
+--ON category_videogame.videogame_id = videogames.id
+--INNER JOIN pegi_label_videogame
+--ON videogames.id = pegi_label_videogame.videogame_id
+--INNER JOIN pegi_labels
+--ON pegi_label_videogame.pegi_label_id = pegi_labels.id
+--INNER JOIN reviews
+--ON videogames.id = reviews.videogame_id
+--WHERE reviews.rating between 4 AND 5;
 
 --7- Selezionare quali giochi erano presenti nei tornei nei quali hanno partecipato i giocatori il cui nome inizia per 'S' (474)
+
+SELECT DISTINCT videogames.id, (videogames.name)nome_videogioco
+FROM videogames
+INNER JOIN tournament_videogame
+ON videogames.id = tournament_videogame.videogame_id
+INNER JOIN tournaments
+ON tournament_videogame.tournament_id = tournaments.id
+INNER JOIN player_tournament
+ON tournaments.id = player_tournament.tournament_id
+INNER JOIN players
+ON player_tournament.player_id = players.id
+WHERE players.name LIKE 'S%';
 
 --8- Selezionare le città in cui è stato giocato il gioco dell'anno del 2018 (36)
 
