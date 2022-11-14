@@ -106,9 +106,20 @@
 
 --1- Selezionare i dati di tutti giocatori che hanno scritto almeno una recensione, mostrandoli una sola volta (996)
 
+--select distinct players.*
+--from players
+--join reviews
+--on reviews.player_id = players.id
 
 
 --2- Sezionare tutti i videogame dei tornei tenuti nel 2016, mostrandoli una sola volta (226)
+
+select distinct tournament_videogame.id
+from tournament_videogame
+join tournaments
+ON tournament_videogame.tournament_id = tournaments.id
+WHERE tournaments.year = '2016'
+GROUP BY tournament_videogame.id, tournament_videogame.videogame_id;
 
 --3- Mostrare le categorie di ogni videogioco (1718)
 
