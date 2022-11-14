@@ -29,13 +29,32 @@
 
 --6- Selezionare tutti i premi che contengono nella descrizione la parola 'facere' (2)
 
+--select * 
+--from awards WHERE awards.description like '%facere%'
+
 --7- Selezionare tutti i videogame che hanno la categoria 2 (FPS) o 6 (RPG), mostrandoli una sola volta (del videogioco vogliamo solo l'ID) (287)
+
+--SELECT DISTINCT  videogame_id
+--FROM category_videogame
+--WHERE category_id = 2 OR category_id = 6
 
 --8- Selezionare tutte le recensioni con voto compreso tra 2 e 4 (2947)
 
+--SELECT *
+--FROM reviews
+--WHERE rating BETWEEN 2 AND 4
+
 --9- Selezionare tutti i dati dei videogiochi rilasciati nell'anno 2020 (46)
 
---10- Selezionare gli id dei videogame che hanno ricevuto almeno una recensione da stelle, mostrandoli una sola volta (443)
+--SELECT *
+--FROM videogames
+--WHERE release_date BETWEEN '01/01/2020' AND '31/12/2020'
+
+--10- Selezionare gli id dei videogame che hanno ricevuto almeno una recensione da 5 stelle, mostrandoli una sola volta (443)
+
+--SELECT DISTINCT videogame_id
+--FROM reviews
+--WHERE rating = 5
 
 --*********** BONUS ***********
 
